@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
-      // SET BASE URL FOR GITHUB PAGES (Must match your repo name /repo-name/)
+      // VITAL: This base URL must match your repository name exactly for GitHub Pages
       base: '/Somnium-Sleep-App/', 
       server: {
         port: 3000,
@@ -20,6 +20,10 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      // Ensure build output goes to 'dist' which the YML will look for
+      build: {
+        outDir: 'dist',
       }
     };
 });
